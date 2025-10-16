@@ -1,0 +1,11 @@
+.boton {
+    border-radius: 5px;
+    background-color: rgb(232, 248, 250);
+    border: 2px solid rgb(122, 151, 245);
+}
+
+.botonGuardar {
+    border-radius: 5px;
+    background-color: rgb(232, 248, 250);
+    border: 2px solid rgb(122, 151, 245);
+}

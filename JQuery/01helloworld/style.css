@@ -1,0 +1,8 @@
+.course{
+    background-color: black;
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    line-height: 20px;
+    display: inline-block;
+    margin-bottom: 20px;
+}

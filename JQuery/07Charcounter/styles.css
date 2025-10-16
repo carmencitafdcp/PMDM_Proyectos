@@ -1,0 +1,14 @@
+/* Mostrar los <span> dentro de .list-group-item como círculos azules con texto blanco */
+.list-group-item span {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 30px;
+	height: 30px;
+	background-color: #027e5f; /* blue (Bootstrap primary) */
+	color: #fff;
+	border-radius: 50%;
+	font-weight: 600;
+	margin-left: 8px;
+}
+
