@@ -1,0 +1,26 @@
+<h2>{{nombre}}</h2>
+<button (click)="cambiarTitulo()">Cambiar título</button>
+<p [style.color]="colorTexto">Este texto cambia de color</p>
+<button (click)="cambiarColor()">Cambiar color</button>
+
+<p style="font-size: 2em">
+  {{ luzEncendida ? '💡' : '💤' }}
+</p>
+<button (click)="encenderLuz()">
+  {{ luzEncendida ? 'Apagar' : 'Encender' }} bombilla
+</button>
+
+<div class="progress" style="height: 25px;">
+  <div
+    class="progress-bar"
+    role="progressbar"
+    [style.width.%]="progreso"
+    [attr.aria-valuenow]="progreso"
+    aria-valuemin="0"
+    aria-valuemax="100">
+    {{progreso}}%
+  </div>
+</div>
+
+<button (click)="incrementar()">+</button>
+<button (click)="decrementar()">-</button>
