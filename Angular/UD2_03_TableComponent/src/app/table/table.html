@@ -1,0 +1,40 @@
+<div class="container mt-4">
+  <h2 class="text-center mb-4">Listado de Alumnos</h2>
+
+  <table class="table table-striped table-bordered text-center align-middle">
+    <thead class="table-dark">
+      <tr>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+        <th>Edad</th>
+        <th>Curso</th>
+        <th>Sexo</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @for (alumno of alumnos; track $index) {
+        <tr>
+          <td>{{ alumno.nombre }}</td>
+          <td>{{ alumno.apellidos }}</td>
+          <td>{{ alumno.edad }}</td>
+          <td>{{ alumno.curso }}</td>
+          <td class="{{ getSexClass(alumno.sexo) }}">
+            {{ getSexIcon(alumno.sexo) }}
+          </td>
+          <td>
+            <button class="btn btn-sm btn-primary me-2">
+              ✏️ Editar
+            </button>
+            <button class="btn btn-sm btn-danger">
+              🗑️ Eliminar
+            </button>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
+
+
