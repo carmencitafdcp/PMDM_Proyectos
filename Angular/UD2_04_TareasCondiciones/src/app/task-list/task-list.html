@@ -1,0 +1,16 @@
+<h2 class="mb-3">Lista de Tareas</h2>
+<ul class="list-group">
+
+    @for (task of tasks; track task.title) {
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        <span>
+            @if (task.done) {
+            ✅ {{ task.title }}
+            } @else {
+            🕒 {{ task.title }}
+            }
+        </span>
+        <button class="btn btn-sm btn-primary" (click)="cambiarEstado(task)">{{ task.done ? 'Deshacer' : 'Completar'}}</button>
+    </li>
+    }
+</ul>
