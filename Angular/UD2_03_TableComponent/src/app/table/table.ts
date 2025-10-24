@@ -26,14 +26,13 @@ export class Table {
     { nombre: 'Nickita', apellidos: 'Diaz', edad: 21, curso: 2, sexo: 'female' },
   ];
 
-
-
-
-  getSexIcon(sexo: Sexo) {
+  iconoSexo(sexo: Sexo) {
     return sexo === 'male' ? '🧔🏻' : '👧🏼';
   }
 
-  getSexClass(sexo: Sexo) {
+  claseIconoSexo(sexo: Sexo) {
     return sexo === 'male' ? 'sex-male' : 'sex-female';
   }
+
 }
+

@@ -16,20 +16,16 @@
     <tbody>
       @for (alumno of alumnos; track $index) {
         <tr>
-          <td>{{ alumno.nombre }}</td>
-          <td>{{ alumno.apellidos }}</td>
-          <td>{{ alumno.edad }}</td>
-          <td>{{ alumno.curso }}</td>
-          <td class="{{ getSexClass(alumno.sexo) }}">
-            {{ getSexIcon(alumno.sexo) }}
+          <td>{{alumno.nombre}}</td>
+          <td>{{alumno.apellidos}}</td>
+          <td>{{alumno.edad}}</td>
+          <td>{{alumno.curso}}</td>
+          <td class="{{claseIconoSexo(alumno.sexo)}}">{{iconoSexo(alumno.sexo)}}
           </td>
           <td>
-            <button class="btn btn-sm btn-primary me-2">
-              ✏️ Editar
-            </button>
-            <button class="btn btn-sm btn-danger">
-              🗑️ Eliminar
-            </button>
+            <!-- <button class="btn btn-sm btn-primary me-2" (click)="editarAlumno($index)">✏️ Editar </button> -->
+            <button class="btn btn-sm btn-primary me-2">✏️ Editar </button>
+            <button class="btn btn-sm btn-danger">🗑️ Eliminar</button>
           </td>
         </tr>
       }
