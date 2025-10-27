@@ -1,0 +1,22 @@
+<div class="calculator-container">
+    <div class="calculator">
+        <input class="display" [value]="pantalla" disabled>
+        
+        <div class="keypad">
+            <button class="btn number" (click)="mostrarNum('7')">7</button>
+            <button class="btn number" (click)="mostrarNum('8')">8</button>
+            <button class="btn number" (click)="mostrarNum('9')">9</button>
+            <button class="btn operator" (click)="operar('+')" [disabled]="operador">+</button>
+            <button class="btn number" (click)="mostrarNum('4')">4</button>
+            <button class="btn number" (click)="mostrarNum('5')">5</button>
+            <button class="btn number" (click)="mostrarNum('6')">6</button>
+            <button class="btn operator" (click)="operar('-')" [disabled]="operador">−</button>
+            <button class="btn number" (click)="mostrarNum('1')">1</button>
+            <button class="btn number" (click)="mostrarNum('2')">2</button>
+            <button class="btn number" (click)="mostrarNum('3')">3</button>
+            <button class="btn equal" (click)="calcular()">=</button>
+            <button class="btn number zero" (click)="mostrarNum('0')">0</button>
+            <button class="btn number" (click)="mostrarNum('.')">.</button>
+        </div>
+    </div>
+</div>
