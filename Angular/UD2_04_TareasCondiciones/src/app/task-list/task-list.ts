@@ -21,6 +21,7 @@ export class TaskList {
   ];
 
   cambiarEstado(task: any) {
+    debugger;
     task.done = !task.done; //Si antes era true ahora será false y viceversa
   }
 }
