@@ -1,0 +1,124 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8 col-sm-10">
+            <div class="card shadow-lg">
+                <div class="card-body p-5">
+                    <form [formGroup]="registerFormGroup">
+                        <div class="text-center mb-4">
+                            <img class="mb-3" src="ola.gif" alt="Logo"
+                                width="72" height="57" />
+                            <h1 class="h3 fw-bold">Crear cuenta</h1>
+                            <p class="text-muted">Completa el formulario para registrarte</p>
+                        </div>
+                
+                <!-- Nombre -->
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingName" placeholder="Nombre"
+                        formControlName="nameFormControl" />
+                    <label for="floatingName">Nombre</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingSurname" placeholder="Apellidos"
+                        formControlName="surnameFormControl" />
+                    <label for="floatingSurname">Apellidos</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingNIF" placeholder="NIF"
+                        formControlName="NIFFormControl" />
+                    <label for="floatingNIF">NIF</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"
+                        formControlName="emailFormControl" />
+                    <label for="floatingInput">Email address</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="tel" class="form-control" id="floatingPhone" placeholder="Teléfono"
+                        formControlName="phoneFormControl" />
+                    <label for="floatingPhone">Teléfono</label>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Género</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gender" id="genderMale" 
+                            value="male" formControlName="genderFormControl" />
+                        <label class="form-check-label" for="genderMale">
+                            Masculino
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gender" id="genderFemale" 
+                            value="female" formControlName="genderFormControl" />
+                        <label class="form-check-label" for="genderFemale">
+                            Femenino
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gender" id="genderOther" 
+                            value="other" formControlName="genderFormControl" />
+                        <label class="form-check-label" for="genderOther">
+                            Otro
+                        </label>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="conocidoPor" class="form-label">¿Cómo conociste esta página?</label>
+                    <select id="conocidoPor" class="form-select" formControlName="conocidoPorFormControl">
+                        <option value="" disabled selected>Selecciona una opción</option>
+                        @for (opcion of opcionesConocimiento; track opcion.valor) {
+                            <option [value]="opcion.valor">
+                                {{ opcion.texto }}
+                            </option>
+                        }
+                    </select>
+                    @if (registerFormGroup.get('conocidoPorFormControl')?.invalid && 
+                         registerFormGroup.get('conocidoPorFormControl')?.touched) {
+                        <div class="text-danger small mt-1">
+                            Este campo es obligatorio
+                        </div>
+                    }
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
+                        formControlName="passwordFormControl" />
+                    <label for="floatingPassword">Contraseña</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="floatingConfirmPassword" 
+                        placeholder="Confirm Password" formControlName="confirmPasswordFormControl" />
+                    <label for="floatingConfirmPassword">Confirmar contraseña</label>
+                </div>
+
+                <div class="form-check text-start my-3">
+                    <input class="form-check-input" type="checkbox" value="remember-me" id="checkDefault" />
+                    <label class="form-check-label" for="checkDefault"> Recordarme </label>
+                </div>
+                
+                <div class="row g-2 mb-3">
+                    <div class="col-6">
+                        <button class="btn btn-outline-secondary w-100" type="button" (click)="clearForm()">
+                            Limpiar
+                        </button>
+                    </div>
+                    <div class="col-6">
+                        <button class="btn btn-primary w-100" type="button" (click)="onRegsiterClicked()">
+                            Registrarse
+                        </button>
+                    </div>
+                </div>
+
+                <p class="mt-4 mb-0 text-center text-muted small">© 2024–2025</p>
+            </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
