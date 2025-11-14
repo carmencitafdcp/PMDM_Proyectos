@@ -1,16 +1,51 @@
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title"></h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+<div class="row">
+
+  <!-- Alumno 0 -->
+  <div class="col-md-4 mb-3">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h5 class="card-title">{{ students[0].nombre }} {{ students[0].apellidos }}</h5>
+        <p class="card-text">
+          <strong>Nº:</strong> {{ students[0].id }} <br>
+          <strong>NIF:</strong> {{ students[0].nif }} <br>
+          <strong>Edad:</strong> {{ students[0].edad }} <br>
+          <strong>Curso:</strong> {{ students[0].curso }}
+        </p>
+        <button class="btn btn-primary" (click)="verDetalle(students[0])">Ver detalle</button>
+      </div>
+    </div>
   </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">An item</li>
-    <li class="list-group-item">A second item</li>
-    <li class="list-group-item">A third item</li>
-  </ul>
-  <div class="card-body">
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
+
+  <!-- Alumno 1 -->
+  <div class="col-md-4 mb-3">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h5 class="card-title">{{ students[1].nombre }} {{ students[1].apellidos }}</h5>
+        <p class="card-text">
+          <strong>Nº:</strong> {{ students[1].id }} <br>
+          <strong>NIF:</strong> {{ students[1].nif }} <br>
+          <strong>Edad:</strong> {{ students[1].edad }} <br>
+          <strong>Curso:</strong> {{ students[1].curso }}
+        </p>
+        <button class="btn btn-primary" (click)="verDetalle(students[1])">Ver detalle</button>
+      </div>
+    </div>
   </div>
+
+  <!-- Alumno 2 -->
+  <div class="col-md-4 mb-3">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h5 class="card-title">{{ students[2].nombre }} {{ students[2].apellidos }}</h5>
+        <p class="card-text">
+          <strong>Nº:</strong> {{ students[2].id }} <br>
+          <strong>NIF:</strong> {{ students[2].nif }} <br>
+          <strong>Edad:</strong> {{ students[2].edad }} <br>
+          <strong>Curso:</strong> {{ students[2].curso }}
+        </p>
+        <button class="btn btn-primary" (click)="verDetalle(students[2])">Ver detalle</button>
+      </div>
+    </div>
+  </div>
+
 </div>
