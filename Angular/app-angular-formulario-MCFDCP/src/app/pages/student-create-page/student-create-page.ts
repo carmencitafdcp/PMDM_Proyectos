@@ -1,15 +1,17 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-student-create-page',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './student-create-page.html',
   styleUrl: './student-create-page.css',
 })
 export class StudentCreatePage {
   studentFormGroup = new FormGroup({
-    sudentNameFormControl: new FormControl(''),
+    studentNameFormControl: new FormControl('', Validators.required),
     studentNumberFormControl: new FormControl(''),
     studentSurnameFormControl: new FormControl(''),
     studentNIFFormControl: new FormControl(''),
@@ -31,5 +33,22 @@ export class StudentCreatePage {
     console.log('Age:', this.studentFormGroup.get('studentAgeFormControl')?.value);
     console.log(' Course  :', this.studentFormGroup.get('studentCourseFormControl')?.value);
     console.log(this.studentFormGroup.value);
+  }
+
+  // Small helpers so template can reference controls directly (avoids template type errors)
+  get studentNameFormControl(): FormControl | null {
+    return this.studentFormGroup.get('studentNameFormControl') as FormControl | null;
+  }
+
+  get studentSurnameFormControl(): FormControl | null {
+    return this.studentFormGroup.get('studentSurnameFormControl') as FormControl | null;
+  }
+
+  get studentNumberFormControl(): FormControl | null {
+    return this.studentFormGroup.get('studentNumberFormControl') as FormControl | null;
+  }
+
+  get studentCourseFormControl(): FormControl | null {
+    return this.studentFormGroup.get('studentCourseFormControl') as FormControl | null;
   }
 }
