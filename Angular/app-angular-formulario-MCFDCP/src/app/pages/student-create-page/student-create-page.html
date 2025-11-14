@@ -1,0 +1,52 @@
+<div class="container p-5">
+    <div class="row justify-content-center">
+        <form>
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Name</label>
+                <input type="text" class="form-control" id="nombre" formControlName="sudentNameFormControl">
+                <!-- @if (nombre.invalid && (nombre.dirty || nombre.touched)) {
+                    <div class="alert alert-danger mt-2" role="alert">
+                        Name is required.
+                    </div>
+                }  -->
+            </div>
+            <div class="mb-3">
+                <label for="Apellidos" class="form-label">Surnames</label>
+                <input type="text" class="form-control" id="Apellidos" formControlName="studentSurnameFormControl">
+                <!-- @if (studentSurnameFormControl.invalid && (studentSurnameFormControl.dirty || studentSurnameFormControl.touched)) {
+                    <div class="alert alert-danger mt-2" role="alert">
+                        Surnames are required.
+                    </div>
+                }  -->
+            </div>
+            <div class="mb-3">
+                <label for="NIF" class="form-label">NIF</label>
+                <input type="text" class="form-control" id="NIF" formControlName="studentNIFFormControl">
+            </div>
+            <div class="mb-3">
+                <label for="Numero" class="form-label">Student Number</label>
+                <input type="text" class="form-control" id="Numsero" formControlName="studentNumberFormControl">
+            </div>
+            <div class="mb-3">
+                <label for="Edad" class="form-label">Age</label>
+                <input type="number" class="form-control" id="Edad" formControlName="studentAgeFormControl">
+            </div>
+            <div class="mb-3">
+                    <label for="Curso" class="form-label">Select the year that you are studying</label>
+                    <select id="Curso" class="form-select" formControlName="studentCourseFormControl">
+                        <option value="" disabled selected>Year</option>
+                        @for (option of opcionesCourses; track option.valor) {
+                            <option [value]="option.valor">
+                                {{ option.texto }}
+                            </option>
+                        }
+                    </select>
+                </div>
+            <div class="col-6">
+                <button class="btn btn-primary w-100" type="button" (click)="onCreateClicked()">
+                    Create
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
