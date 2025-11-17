@@ -1,7 +1,8 @@
 import { Routes } from '@angular/router';
 import { VehiclesListPage } from './pages/vehicles-list-page/vehicles-list-page';
+import { VehicleDetailPage } from './pages/vehicle-detail-page/vehicle-detail-page';
 
 export const routes: Routes = [
-    {path: '', redirectTo:'vehicles', pathMatch: 'full'},
-    {path: 'vehicles', component: VehiclesListPage}
+    {path: 'vehicles', component: VehiclesListPage}, 
+    {path:'vehicleDetail/:id', component: VehicleDetailPage}
 ];
