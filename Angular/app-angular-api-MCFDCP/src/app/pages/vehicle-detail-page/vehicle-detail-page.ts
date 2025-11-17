@@ -1,6 +1,7 @@
 import { Component, input, OnInit } from '@angular/core';
 import { VehicleDetailService } from '../../services/vehicle-detail-service';
 import { VehicleDetail } from '../../interface/vehicle-detail-response';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-vehicle-detail-page',
   imports: [],
