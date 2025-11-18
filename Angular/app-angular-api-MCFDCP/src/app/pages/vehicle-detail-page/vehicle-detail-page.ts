@@ -33,4 +33,6 @@ export class VehicleDetailPage{
   created = input('');
   edited = input('');
   url = input(''); 
+
+  
 }
