@@ -1,8 +1,0 @@
-import { Movie } from "./movie-list-item.interface";
-
-export interface MovieListsTopRatedResponse {
-  page: number;
-  results: Movie[];
-  total_pages: number;
-  total_results: number;
-}
