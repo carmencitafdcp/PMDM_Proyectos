@@ -1,0 +1,5 @@
+@for (person of people; track person.id) {
+  <div (click)="goToDetail(person.id)">
+    <p>{{ person.name }}</p>
+  </div>
+}

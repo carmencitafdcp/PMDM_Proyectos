@@ -1,6 +1,15 @@
-<button type="button" (click)="loadTopRatedMovies()">Refresh Top Rated</button>
-<button type="button" (click)="loadPopularMovies()">Refresh Popular</button>
-<br/>
-@for(movie of movieList; track movie.id) {
-    <p>{{movie.title}}</p>
+<select [(ngModel)]="selectedCategory" (change)="onCategoryChange()">
+  <option value="popular">Popular</option>
+  <option value="top_rated">Top Rated</option>
+  <option value="upcoming">Upcoming</option>
+</select>
+
+<br /><br />
+
+<button type="button" (click)="loadMovies()">Refrescar</button>
+
+<br /><br />
+
+@for (movie of movieList; track movie.id) {
+  <p>{{ movie.title }}</p>
 }
