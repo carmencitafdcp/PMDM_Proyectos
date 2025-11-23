@@ -5,6 +5,7 @@ import { Movie } from '../../models/movie-list-item';
 @Component({
   selector: 'app-top-movie-list',
   imports: [],
+  standalone: true,
   templateUrl: './top-movie-list.html',
   styleUrl: './top-movie-list.css',
 })
