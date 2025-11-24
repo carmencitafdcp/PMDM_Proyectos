@@ -1,37 +1,14 @@
-<div class="container text-center">
-    <div class="row">
-        <div class="col">
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card’s content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
+<button type="button" class="btn btn-primary">People List</button>
+<button type="button" class="btn btn-primary">Movie List</button>
+
+<div> 
+    @for(people of peopleList; track people.id) {
+        <div class="card" style="width: 18rem; display: inline-block; margin: 10px;">
+            <img src="https://image.tmdb.org/t/p/w500{{people.profile_path}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{people.name}}</h5>
+                <p class="card-text">Popularidad: {{people.popularity}}</p>  
             </div>
         </div>
-        <div class="col">
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card’s content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card’s content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-    </div>
+}
 </div>
