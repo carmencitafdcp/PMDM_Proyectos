@@ -11,8 +11,8 @@ import { People, peoplePopularListResponse } from '../../models/people-popular-l
   styleUrl: './home-page.css',
 })
 export class HomePage implements OnInit {
-  peopleList: peoplePopularListResponse[] = [];
-  movieList: moviePopularListResponse[] = [];
+  peopleList: People[] = [];
+  movieList: Movie[] = [];
   constructor(private peoplePopularListService: PeoplePopularListService, private moviePopularListService: MoviePopularListService) { }
 
   ngOnInit(): void {
