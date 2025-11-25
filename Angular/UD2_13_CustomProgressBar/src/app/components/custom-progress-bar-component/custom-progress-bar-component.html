@@ -1,0 +1,23 @@
+<div class="button-group progreso">
+  <button (click)="value = value + 10">+10%</button>
+  <button (click)="value = value - 10">-10%</button>
+</div>
+
+<div class="button-group color">
+  <button (click)="color='primary'">Azul</button>
+  <button (click)="color='secondary'">Gris</button>
+  <button (click)="color='success'">Verde</button>
+  <button (click)="color='info'">Azul claro</button>
+  <button (click)="color='warning'">Naranja</button>
+  <button (click)="color='danger'">Rojo</button>
+  <button (click)="color='light'">Blanco</button>
+  <button (click)="color='dark'">Negro</button>
+</div>
+
+<ngb-progressbar
+  [value]="value"
+  [type]="color"
+  [striped]="striped"
+  [animated]="animated"
+  [showValue]="showValue">
+</ngb-progressbar>
