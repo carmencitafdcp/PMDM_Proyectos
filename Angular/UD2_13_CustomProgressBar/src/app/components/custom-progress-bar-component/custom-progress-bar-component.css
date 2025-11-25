@@ -1,4 +1,4 @@
-/* Contenedor general */
+
 :host {
   display: block;
   max-width: 700px;
@@ -7,7 +7,6 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Grupo de botones */
 .button-group {
   display: flex;
   flex-wrap: wrap;
@@ -16,7 +15,6 @@
   margin-bottom: 20px;
 }
 
-/* Botones de progreso */
 .button-group.progreso button {
   padding: 8px 16px;
   border: 2px solid rgb(44, 103, 193);
@@ -26,7 +24,7 @@
   cursor: pointer;
   font-weight: 600;
   color: rgb(255, 255, 255);
-  background-color: #7cb2d9; /* azul */
+  background-color: #7cb2d9; 
   transition: transform 0.2s, opacity 0.2s;
 }
 
@@ -35,7 +33,6 @@
   opacity: 0.85;
 }
 
-/* Botones de color de barra */
 .button-group.color button {
   padding: 8px 14px;
   border: none;
@@ -45,7 +42,6 @@
   transition: transform 0.2s, opacity 0.2s;
 }
 
-/* Colores según el tipo de barra */
 .button-group.color button:nth-child(1) { background-color: #0d6efd; color: white; } /* primary */
 .button-group.color button:nth-child(2) { background-color: #6c757d; color: white; } /* secondary */
 .button-group.color button:nth-child(3) { background-color: #198754; color: white; } /* success */
@@ -60,7 +56,6 @@
   opacity: 0.85;
 }
 
-/* Barra de progreso */
 ngb-progressbar {
   height: 35px;
   border-radius: 12px;
@@ -71,7 +66,6 @@ ngb-progressbar {
   text-align: center;
 }
 
-/* Texto centrado dentro de la barra */
 ngb-progressbar .progress-bar {
   display: flex;
   justify-content: center;
