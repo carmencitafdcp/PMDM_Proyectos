@@ -1,19 +1,20 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule, FormControl, Validators } from '@angular/forms';
 import { GenresService } from '../../services/genres-service';
-import { Genre } from '../../models/interfaces/genre.interface';
-import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { DiscoverService } from '../../services/discover-service';
-import { MovieDiscover } from '../../models/interfaces/discover-movie-response.interface';
 import { AuthenticationService } from '../../services/authentication-service';
+import { Genre } from '../../models/interfaces/genre.interface';
+import { MovieDiscover } from '../../models/interfaces/discover-movie-response.interface';
 
 @Component({
   selector: 'app-movie-discover-page',
-  imports: [ReactiveFormsModule],
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './movie-discover-page.html',
   styleUrls: ['./movie-discover-page.css'],
 })
 export class MovieDiscoverPage implements OnInit {
-
   genresMovieList: Genre[] = [];
   genreMovieSearch = new FormControl('', Validators.required);
   movieList: MovieDiscover[] = [];
@@ -25,7 +26,7 @@ export class MovieDiscoverPage implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.genresService.getMovieList().subscribe(resp => {
+    this.genresService.getMovieList().subscribe((resp) => {
       this.genresMovieList = resp.genres;
     });
   }
@@ -38,7 +39,7 @@ export class MovieDiscoverPage implements OnInit {
       return;
     }
 
-    this.discoverService.getMovieList(genre).subscribe(resp => {
+    this.discoverService.getMovieList(genre).subscribe((resp) => {
       this.movieList = resp.results;
     });
   }
@@ -52,10 +53,12 @@ export class MovieDiscoverPage implements OnInit {
   }
 
   login() {
-    this.authenticationService.createRequestToken().subscribe(resp => {
+    this.authenticationService.createRequestToken().subscribe((resp) => {
       const token = resp.request_token;
-      window.open(`https://www.themoviedb.org/authenticate/${token}?redirect_to=http://localhost:4200/create-session`,'_blank');
+      window.open(
+        `https://www.themoviedb.org/authenticate/${token}?redirect_to=http://localhost:4200/create-session`,
+        '_blank'
+      );
     });
   }
-
 }
