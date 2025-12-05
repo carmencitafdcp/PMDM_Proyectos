@@ -1,0 +1,79 @@
+<div class="container py-3">
+    <h1 class="h3 mb-3">Buscador de gasolineras</h1>
+    <div class="row g-3 mb-3">
+        <div class="col-12 col-md-6">
+            <label class="form-label">Provincia</label>
+            <select class="form-select" [formControl]="form.controls.provincia">
+                <option [ngValue]="null" disabled>Selecciona una provincia</option>
+
+                @if (loadingProvincias) {
+                <option disabled>Cargando provincias...</option>
+                } @else {
+                @for (p of provincias; track trackProvincia($index, p)) {
+                <option [value]="p.IDPovincia">{{ p.Provincia }}</option>
+                }
+                }
+            </select>
+        </div>
+
+        <div class="col-12 col-md-6">
+            <label class="form-label">Municipio</label>
+            <select class="form-select" [formControl]="form.controls.municipio">
+                <option [ngValue]="null" disabled>Selecciona un municipio</option>
+
+                @if (loadingMunicipios) {
+                <option disabled>Cargando municipios...</option>
+                } @else {
+                @for (m of municipios; track trackMunicipio($index, m)) {
+                <option [value]="m.IDMunicipio">{{ m.Municipio }}</option>
+                }
+                }
+            </select>
+            <div class="form-text">
+                El municipio se habilita al seleccionar una provincia.
+            </div>
+        </div>
+    </div>
+
+    @if (errorMsg) {
+    <div class="alert alert-danger">{{ errorMsg }}</div>
+    }
+
+    @if (loadingEstaciones) {
+    <div class="alert alert-info">Cargando estaciones...</div>
+    }
+
+    @if (!loadingEstaciones && estaciones.length === 0 && form.value.municipio) {
+    <p class="text-muted">No hay estaciones para este municipio.</p>
+    }
+
+    <div class="row g-3">
+        @for (e of estaciones; track trackEstacion($index, e)) {
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title mb-1">{{ e.rotulo }}</h5>
+                    <div class="text-muted small mb-2">
+                        {{ e.direccion }} • {{ e.localidad }} ({{ e.cp }})
+                    </div>
+
+                    <ul class="list-group list-group-flush mb-2">
+                        @for (c of carburantes(e); track $index) {
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>{{ c.label }}</span>
+                            <span class="fw-semibold">{{ c.value }} €</span>
+                        </li>
+                        }
+                    </ul>
+
+                    <div class="d-flex flex-wrap gap-2 small text-muted">
+                        <span>Horario: {{ e.horario || 'No informado' }}</span>
+                        <span>Margen: {{ e.margen || '-' }}</span>
+                        <span>Provincia: {{ e.provincia }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</div>
