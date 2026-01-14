@@ -8,10 +8,10 @@ class HomePageView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF1976D2),
-      body: Center(
-        child: UvCard(
+      body: const Center(
+          child: CustomWidget(
           uvValue: 2,
-          uvLabel: 'Low',
+          uvLabel: 'Very Low',
           uvColor: Colors.green,
         )
       ),
