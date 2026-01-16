@@ -1,5 +1,5 @@
-import 'package:actors_horizontal_line/pages/home_page_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_travel_app/pages/home_page_view.dart';
 
 void main() {
   runApp(const MyApp());
