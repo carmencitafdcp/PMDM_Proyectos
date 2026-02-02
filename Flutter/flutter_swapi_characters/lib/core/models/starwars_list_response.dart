@@ -13,18 +13,26 @@ class StarWarsListResponse {
     required this.results,
   });
 
-  factory StarWarsListResponse.fromJson(Map<String, dynamic> json) {
-    return StarWarsListResponse(
-      count: json['count'] ?? 0,
-      next: json['next'],
-      previous: json['previous'],
-      results: (json['results'] as List?)
-          ?.map((item) => StarWarsCharacter.fromJson(item as Map<String, dynamic>))
-          .toList() ?? [],
-    );
-  }
-}
+  factory StarWarsListResponse.fromJson(String str) =>
+      StarWarsListResponse.fromMap(json.decode(str));
 
+  factory StarWarsListResponse.fromMap(Map<String, dynamic> json) =>
+      StarWarsListResponse(
+        count: json["count"] ?? 0,
+        next: json["next"],
+        previous: json["previous"],
+        results: List<StarWarsCharacter>.from(
+          json["results"].map((x) => StarWarsCharacter.fromMap(x)),
+        ),
+      );
+
+  Map<String, dynamic> toMap() => {
+    "count": count,
+    "next": next,
+    "previous": previous,
+    "results": List<dynamic>.from(results.map((x) => x.toMap())),
+  };
+}
 
 class StarWarsCharacter {
   final String name;
@@ -63,24 +71,47 @@ class StarWarsCharacter {
     required this.url,
   });
 
-  factory StarWarsCharacter.fromJson(Map<String, dynamic> json) {
-    return StarWarsCharacter(
-      name: json['name'] ?? '',
-      height: json['height'] ?? '',
-      mass: json['mass'] ?? '',
-      hairColor: json['hair_color'] ?? '',
-      skinColor: json['skin_color'] ?? '',
-      eyeColor: json['eye_color'] ?? '',
-      birthYear: json['birth_year'] ?? '',
-      gender: json['gender'] ?? '',
-      homeworld: json['homeworld'] ?? '',
-      films: List<String>.from(json['films'] ?? []),
-      species: List<String>.from(json['species'] ?? []),
-      vehicles: List<String>.from(json['vehicles'] ?? []),
-      starships: List<String>.from(json['starships'] ?? []),
-      created: json['created'] ?? '',
-      edited: json['edited'] ?? '',
-      url: json['url'] ?? '',
-    );
-  }
+  factory StarWarsCharacter.fromJson(String str) =>
+      StarWarsCharacter.fromMap(json.decode(str));
+
+  String toJson() => json.encode(toMap());
+
+  factory StarWarsCharacter.fromMap(Map<String, dynamic> json) =>
+      StarWarsCharacter(
+        name: json['name'] ?? '',
+        height: json['height'] ?? '',
+        mass: json['mass'] ?? '',
+        hairColor: json['hair_color'] ?? '',
+        skinColor: json['skin_color'] ?? '',
+        eyeColor: json['eye_color'] ?? '',
+        birthYear: json['birth_year'] ?? '',
+        gender: json['gender'] ?? '',
+        homeworld: json['homeworld'] ?? '',
+        films: List<String>.from(json['films'] ?? []),
+        species: List<String>.from(json['species'] ?? []),
+        vehicles: List<String>.from(json['vehicles'] ?? []),
+        starships: List<String>.from(json['starships'] ?? []),
+        created: json['created'] ?? '',
+        edited: json['edited'] ?? '',
+        url: json['url'] ?? '',
+      );
+
+  Map<String, dynamic> toMap() => {
+    "name": name,
+    "height": height,
+    "mass": mass,
+    "hair_color": hairColor,
+    "skin_color": skinColor,
+    "eye_color": eyeColor,
+    "birth_year": birthYear,
+    "gender": gender,
+    "homeworld": homeworld,
+    "films": films,
+    "species": species,
+    "vehicles": vehicles,
+    "starships": starships,
+    "created": created,
+    "edited": edited,
+    "url": url,
+  };
 }
