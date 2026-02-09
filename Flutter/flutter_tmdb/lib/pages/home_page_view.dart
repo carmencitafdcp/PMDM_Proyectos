@@ -15,8 +15,6 @@ class HomePageView extends StatefulWidget {
 }
 
 class _HomePageViewState extends State<HomePageView> {
-  late MovieListBloc homeMovieBloc;
-
   @override
   void initState() {
     super.initState();
@@ -26,7 +24,7 @@ class _HomePageViewState extends State<HomePageView> {
   Widget build(BuildContext context) {
     return BlocProvider<MovieListBloc>(
       create: (_) =>
-          homeMovieBloc = MovieListBloc(MovieService())
+          MovieListBloc(MovieService())
             ..add(LoadPopularMovies()),
       child: Scaffold(
         appBar: AppBar(title: const Text('Películas')),
