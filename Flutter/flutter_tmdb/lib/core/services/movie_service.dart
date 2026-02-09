@@ -1,7 +1,8 @@
 import 'dart:convert';
 
+import 'package:flutter_tmdb/config/api_config.dart';
 import 'package:flutter_tmdb/core/interfaces/movies_list_interface.dart';
-import 'package:flutter_tmdb/core/models/movies_list_popular_response.dart';
+import 'package:flutter_tmdb/core/models/movies_list_response.dart';
 import 'package:http/http.dart' as http;
 
 enum MovieListType {
@@ -15,22 +16,17 @@ enum MovieListType {
 }
 
 class MovieService implements MoviesListInterface {
-  final String _apiBaseUrl = "https://api.themoviedb.org/3/movie";
-
   @override
   Future<List<Movie>> getList(MovieListType listType) async {
-    var response = await http.get(Uri.parse("$_apiBaseUrl/${listType.value}"));
-    try {
-      if (response.statusCode >= 200 && response.statusCode < 300) {
-        var moviesList = MovieListPopularResponse.fromJson(
-          json.decode(response.body),
-        ).results;
-        return moviesList;
-      } else {
-        return [];
-      }
-    } catch (e) {
-      throw Exception("Error al obtener las películas populares");
+    final url = '${ApiConfig.baseUrl}/movie/${listType.value}?api_key=${ApiConfig.apiKey}';
+    final response = await http.get(Uri.parse(url));
+
+    if (response.statusCode >= 200 && response.statusCode < 300) {
+      final decoded = json.decode(response.body) as Map<String, dynamic>;
+      final resp = MovieListResponse.fromJson(decoded);
+      return resp.results;
+    } else {
+      return [];
     }
   }
 }

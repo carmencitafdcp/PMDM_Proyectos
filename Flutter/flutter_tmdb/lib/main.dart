@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tmdb/ui/home_page_view.dart';
+import 'package:flutter_tmdb/pages/home_page_view.dart';
 
 void main() {
   runApp(const MyApp());

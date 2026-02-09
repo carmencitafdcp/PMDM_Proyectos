@@ -1,18 +1,18 @@
-class MovieListPopularResponse {
+class MovieListResponse {
   final int page;
   final List<Movie> results;
   final int totalPages;
   final int totalResults;
 
-  MovieListPopularResponse({
+  MovieListResponse({
     required this.page,
     required this.results,
     required this.totalPages,
     required this.totalResults,
   });
 
-  factory MovieListPopularResponse.fromJson(Map<String, dynamic> json) =>
-      MovieListPopularResponse(
+  factory MovieListResponse.fromJson(Map<String, dynamic> json) =>
+      MovieListResponse(
         page: json["page"],
         results: List<Movie>.from(
           json["results"].map((x) => Movie.fromJson(x)),
@@ -63,20 +63,20 @@ class Movie {
   });
 
   factory Movie.fromJson(Map<String, dynamic> json) => Movie(
-    adult: json["adult"],
+    adult: json["adult"] ?? false,
     backdropPath: json["backdrop_path"],
-    genreIds: List<int>.from(json["genre_ids"].map((x) => x)),
+    genreIds: List<int>.from(json["genre_ids"]?.map((x) => x) ?? <int>[]),
     id: json["id"],
-    originalLanguage: json["original_language"],
-    originalTitle: json["original_title"],
-    overview: json["overview"],
-    popularity: json["popularity"]?.toDouble(),
+    originalLanguage: json["original_language"] ?? "",
+    originalTitle: json["original_title"] ?? "",
+    overview: json["overview"] ?? "",
+    popularity: (json["popularity"] ?? 0).toDouble(),
     posterPath: json["poster_path"],
     releaseDate: json["release_date"],
-    title: json["title"],
-    video: json["video"],
-    voteAverage: json["vote_average"]?.toDouble(),
-    voteCount: json["vote_count"],
+    title: json["title"] ?? "",
+    video: json["video"] ?? false,
+    voteAverage: (json["vote_average"] ?? 0).toDouble(),
+    voteCount: json["vote_count"] ?? 0,
   );
 
   Map<String, dynamic> toJson() => {
